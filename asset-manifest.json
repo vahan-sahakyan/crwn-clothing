@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/crwn-clothing/static/css/main.840861d4.css",
-    "main.js": "/crwn-clothing/static/js/main.86e097a6.js",
+    "main.js": "/crwn-clothing/static/js/main.da6246ec.js",
     "index.html": "/crwn-clothing/index.html",
     "main.840861d4.css.map": "/crwn-clothing/static/css/main.840861d4.css.map",
-    "main.86e097a6.js.map": "/crwn-clothing/static/js/main.86e097a6.js.map"
+    "main.da6246ec.js.map": "/crwn-clothing/static/js/main.da6246ec.js.map"
   },
   "entrypoints": [
     "static/css/main.840861d4.css",
-    "static/js/main.86e097a6.js"
+    "static/js/main.da6246ec.js"
   ]
 }
