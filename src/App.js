@@ -17,15 +17,15 @@ function HatsPage(props) {
 const App = () => {
   return (
     <div>
-      <Link to="/">
+      <Link to="/crwn-clothing/">
         <button> HOME</button>
       </Link>
-      <Link to="/hats">
+      <Link to="/crwn-clothing/hats">
         <button>HATS</button>
       </Link>
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/hats" component={HatsPage} />
+        <Route exact path="/crwn-clothing/" component={HomePage} />
+        <Route path="/crwn-clothing/hats" component={HatsPage} />
       </Switch>
     </div>
   );
