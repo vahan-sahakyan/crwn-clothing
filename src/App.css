@@ -1,3 +1,44 @@
 body {
   font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #eee;
+}
+.nav {
+  height: 70px;
+  background-color: #fffe;
+  z-index: 9999;
+
+  display: flex;
+
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.nav-container {
+  display: flex;
+
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 1.5rem;
+
+  flex: 1;
+
+  border-style: none;
+  color: #eee;
+  background-color: #444;
+  padding: 5px 30px;
+  cursor: pointer;
+  /* margin: 10px; */
+}
+button:hover {
+  background-color: #777;
+  transition: 100ms;
 }

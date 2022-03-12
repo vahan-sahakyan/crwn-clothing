@@ -17,16 +17,22 @@ function HatsPage(props) {
 const App = () => {
   return (
     <div>
-      <Link to="/crwn-clothing/">
-        <button> HOME</button>
-      </Link>
-      <Link to="/crwn-clothing/hats">
-        <button>HATS</button>
-      </Link>
+      <nav className="nav">
+        <div className="nav-container">
+          <Link to="/crwn-clothing/">
+            <button> HOME</button>
+          </Link>
+          <Link to="/crwn-clothing/hats">
+            <button>HATS</button>
+          </Link>
+        </div>
+      </nav>
+
       <Switch>
         <Route exact path="/crwn-clothing/" component={HomePage} />
         <Route path="/crwn-clothing/hats" component={HatsPage} />
       </Switch>
+      <div style={{ height: '70px' }} />
     </div>
   );
 };
