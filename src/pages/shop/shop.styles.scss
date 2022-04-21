@@ -1,0 +1,16 @@
+.shop-page {
+  padding: 5vh 5vw;
+
+  > h1 {
+    text-align: center;
+  }
+}
+
+.collections {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+}
