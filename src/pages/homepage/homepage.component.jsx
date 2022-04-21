@@ -6,6 +6,7 @@ import './homepage.styles.scss';
 
 const HomePage = props => {
   console.log(props);
+
   return (
     <div className="homepage">
       <h1>HOME PAGE</h1>
