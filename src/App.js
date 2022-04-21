@@ -20,10 +20,11 @@ function HatsPage(props) {
 }
 
 const App = () => {
+  const home = '/crwn-clothing';
   const urls = {
-    home: '/',
-    hats: '/hats',
-    shop: '/shop',
+    home: home,
+    hats: home + '/hats',
+    shop: home + '/shop',
   };
 
   return (
