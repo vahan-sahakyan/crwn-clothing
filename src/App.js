@@ -49,6 +49,7 @@ const App = () => {
       <Switch>
         <Route exact path={urls.home} component={HomePage} />
         <Route path={`${urls.hats}/:id`} component={HatsPage} />
+        <Route path={`${urls.hats}/`} component={HatsPage} />
         <Route path={`${urls.shop}`} component={ShopPage} />
       </Switch>
       <div style={{ height: '70px' }} />
