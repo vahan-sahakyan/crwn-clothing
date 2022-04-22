@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
+import Header from '../src/components/header/header.component.jsx';
+
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 
@@ -45,6 +47,8 @@ const App = () => {
           </Link> */}
         </div>
       </nav>
+
+      <Header />
 
       <Switch>
         <Route exact path={urls.home} component={HomePage} />

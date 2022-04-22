@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // margin-bottom: 25px;
+  padding: 5vw;
+
+  .logo-container {
+    height: 100%;
+
+    .logo {
+      margin: 0 auto;
+      text-align: center;
+      align-items: center;
+      display: block;
+    }
+  }
+}
+
+.options {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  gap: 4em;
+  align-items: center;
+  justify-content: flex-end;
+
+  .option {
+  }
+}

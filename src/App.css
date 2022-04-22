@@ -2,6 +2,10 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: #eee;
 }
+a {
+  text-decoration: none;
+  color: #111;
+}
 .nav {
   height: auto;
   padding: 1rem 1rem 1rem 0;
