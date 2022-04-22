@@ -7,7 +7,7 @@ import './header.styles.scss';
 
 const Header = () => (
   <div className="header">
-    <Link className="logo-container" to="/crwn-clothing/">
+    <Link className="logo-container" to="/crwn-clothing">
       <Logo className="logo" />
     </Link>
 
