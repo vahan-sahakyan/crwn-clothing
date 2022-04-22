@@ -44,7 +44,7 @@ button {
   background-color: #fff6;
 
   padding: 0.15em 1.2em;
-  cursor: pointer;
+  /* cursor: pointer; */
   /* margin: 10px; */
 }
 button:hover {
