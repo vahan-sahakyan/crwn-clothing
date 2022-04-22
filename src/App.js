@@ -7,27 +7,28 @@ import Header from '../src/components/header/header.component.jsx';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 
-function HatsPage(props) {
-  console.log('[ HATS PAGE ]');
+function ItemPage(props) {
   const { match } = props;
+  const menuItem = match.path.split('/')[2].toUpperCase();
+  console.log(`[ ${menuItem} PAGE ]`);
 
   console.log(match.url);
   console.log(match.path);
-
   return (
     <div className="homepage">
-      <h1>HATS PAGE</h1>
+      <h1>{menuItem} PAGE</h1>
     </div>
   );
 }
 
 const App = () => {
-  const home = '/crwn-clothing';
+  const home = '/crwn-clothing/';
   const urls = {
     home: home,
-    hats: home + '/hats',
-    shop: home + '/shop',
+    hats: home + 'hats',
+    shop: home + 'shop',
   };
+  const items = ['hats', 'jackets', 'sneakers', 'womens', 'mens'];
 
   return (
     <div>
@@ -36,7 +37,7 @@ const App = () => {
           <Link to={urls.home}>
             <button> HOME</button>
           </Link>
-          <Link to={`${urls.shop}`}>
+          <Link to={urls.shop}>
             <button>SHOP</button>
           </Link>
           {/* <Link to={`${urls.hats}`}>
@@ -52,9 +53,12 @@ const App = () => {
 
       <Switch>
         <Route exact path={urls.home} component={HomePage} />
-        <Route path={`${urls.hats}/:id`} component={HatsPage} />
-        <Route path={`${urls.hats}/`} component={HatsPage} />
-        <Route path={`${urls.shop}`} component={ShopPage} />
+        <Route path={`${urls.shop}/`} component={ShopPage} />
+
+        <Route path={`${urls.hats}/`} component={ItemPage} />
+        {items.map(item => (
+          <Route path={`${home}${item}/`} component={ItemPage} />
+        ))}
       </Switch>
       <div style={{ height: '70px' }} />
     </div>

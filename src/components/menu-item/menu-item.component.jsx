@@ -7,12 +7,11 @@ const MenuItem = props => {
   const { title, imageUrl, size, linkUrl, history, match } = props;
   console.log(match.url);
   console.log(match.path);
-  console.log(linkUrl);
 
   return (
     <div
       className={`${size ? size : ''} menu-item`}
-      onClick={() => history.push(`${match.url}/${linkUrl}`)}
+      onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
       <div
         className="background-image"
