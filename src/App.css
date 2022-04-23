@@ -35,26 +35,31 @@ a {
 
 button {
   font-family: 'Kumbh Sans', sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 0.15em 1.2em;
+  padding: 0.1em 1.7em;
+
   font-size: 1.3rem;
   font-weight: bolder;
 
   flex: 1;
 
   border-style: none;
-  color: #1a1a1a;
+  color: #fff;
   /* border-radius: 50px; */
 
   border: 1px solid #effb8400;
   background-color: #effb84ee;
   background-color: #fff6;
+  background-color: #000a;
 
-  padding: 0.15em 1.2em;
   /* cursor: pointer; */
   /* margin: 10px; */
 }
 button:hover {
+  color: #1a1a1a;
   border-color: #effb84;
-  border-color: #0008;
+  border-color: black;
   background-color: #0000;
   transition: 150ms;
 }
