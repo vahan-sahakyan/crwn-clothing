@@ -2,6 +2,8 @@ import './App.css';
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
+import CustomButton from './components/custom-button/custom-button.component.jsx';
+
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
@@ -36,10 +38,10 @@ const App = () => {
       <nav className="nav">
         <div className="nav-container">
           <Link to={urls.home}>
-            <button> HOME</button>
+            <CustomButton> HOME</CustomButton>
           </Link>
           <Link to={urls.shop}>
-            <button>SHOP</button>
+            <CustomButton>SHOP</CustomButton>
           </Link>
           {/* <Link to={`${urls.hats}`}>
             <button>HATS</button>
