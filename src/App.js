@@ -2,10 +2,10 @@ import './App.css';
 import React from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 
-import Header from '../src/components/header/header.component.jsx';
-
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
+import Header from '../src/components/header/header.component.jsx';
 
 function ItemPage(props) {
   const { match } = props;
@@ -27,6 +27,7 @@ const App = () => {
     home: home,
     hats: home + 'hats',
     shop: home + 'shop',
+    signIn: home + 'signin',
   };
   const items = ['hats', 'jackets', 'sneakers', 'womens', 'mens'];
 
@@ -54,6 +55,7 @@ const App = () => {
       <Switch>
         <Route exact path={urls.home} component={HomePage} />
         <Route path={`${urls.shop}/`} component={ShopPage} />
+        <Route path={`${urls.signIn}/`} component={SignInAndSignUpPage} />
 
         <Route path={`${urls.hats}/`} component={ItemPage} />
         {items.map(item => (

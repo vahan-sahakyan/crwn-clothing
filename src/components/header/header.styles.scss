@@ -21,14 +21,17 @@
 }
 
 .options {
-  width: 50%;
+  width: 80vw;
   height: 100%;
   display: flex;
-  gap: 4em;
+  gap: 4vw;
   align-items: center;
   justify-content: flex-end;
 
   .option {
     font-size: 2em;
+    // flex: 1;
+    flex-basis: 2.6em;
+    text-align: right;
   }
 }
