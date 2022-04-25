@@ -8,6 +8,7 @@ import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
 import Header from '../src/components/header/header.component.jsx';
+import { auth } from './firebase/firebase.utils';
 
 function ItemPage(props) {
   const { match } = props;
@@ -23,50 +24,41 @@ function ItemPage(props) {
   );
 }
 
-const App = () => {
-  const home = '/crwn-clothing/';
-  const urls = {
-    home: home,
-    hats: home + 'hats',
-    shop: home + 'shop',
-    signIn: home + 'signin',
-  };
-  const items = ['hats', 'jackets', 'sneakers', 'womens', 'mens'];
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { currentUser: null };
+  }
+  componentDidMount() {
+    //
+  }
+  render() {
+    return (
+      <div>
+        <nav className="nav">
+          <div className="nav-container">
+            <Link to="/crwn-clothing/">
+              <CustomButton> HOME</CustomButton>
+            </Link>
+            <Link to="/crwn-clothing/shop">
+              <CustomButton>SHOP</CustomButton>
+            </Link>
+          </div>
+        </nav>
 
-  return (
-    <div>
-      <nav className="nav">
-        <div className="nav-container">
-          <Link to={urls.home}>
-            <CustomButton> HOME</CustomButton>
-          </Link>
-          <Link to={urls.shop}>
-            <CustomButton>SHOP</CustomButton>
-          </Link>
-          {/* <Link to={`${urls.hats}`}>
-            <button>HATS</button>
-          </Link>
-          <Link to={`${urls.hats}/3`}>
-            <button>HATS/3</button>
-          </Link> */}
-        </div>
-      </nav>
+        <Header />
 
-      <Header />
+        <Switch>
+          <Route exact path="/crwn-clothing/" component={HomePage} />
+          <Route path="/crwn-clothing/shop/" component={ShopPage} />
+          <Route path="/crwn-clothing/signin" component={SignInAndSignUpPage} />
 
-      <Switch>
-        <Route exact path={urls.home} component={HomePage} />
-        <Route path={`${urls.shop}/`} component={ShopPage} />
-        <Route path={`${urls.signIn}/`} component={SignInAndSignUpPage} />
-
-        <Route path={`${urls.hats}/`} component={ItemPage} />
-        {items.map(item => (
-          <Route path={`${home}${item}/`} component={ItemPage} />
-        ))}
-      </Switch>
-      <div style={{ height: '70px' }} />
-    </div>
-  );
-};
+          <Route path="/crwn-clothing/hats/" component={ItemPage} />
+        </Switch>
+        <div style={{ height: '70px' }} />
+      </div>
+    );
+  }
+}
 
 export default App;
