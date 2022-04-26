@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <nav className="nav">
+        {/* <nav className="nav">
           <div className="nav-container">
             <Link to="/crwn-clothing/">
               <CustomButton> HOME</CustomButton>
@@ -63,7 +63,7 @@ class App extends React.Component {
               <CustomButton>SHOP</CustomButton>
             </Link>
           </div>
-        </nav>
+        </nav> */}
 
         <Header currentUser={this.state.currentUser} />
 
