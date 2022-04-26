@@ -31,8 +31,15 @@
   .option {
     cursor: pointer;
     font-size: 2em;
+
     // flex: 1;
-    // flex-basis: 2.6em;
+    min-width: fit-content;
     text-align: right;
+  }
+}
+
+@media (max-width: 580px) {
+  .header .option {
+    font-size: 1.3em;
   }
 }
