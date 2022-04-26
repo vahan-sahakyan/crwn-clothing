@@ -29,9 +29,10 @@
   justify-content: flex-end;
 
   .option {
+    cursor: pointer;
     font-size: 2em;
     // flex: 1;
-    flex-basis: 2.6em;
+    // flex-basis: 2.6em;
     text-align: right;
   }
 }

@@ -25,12 +25,21 @@ function ItemPage(props) {
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentUser: null };
+  constructor() {
+    super();
+    this.state = {
+      currentUser: null,
+    };
   }
+  unsubscribeFromUath = null;
   componentDidMount() {
-    //
+    this.unsubscribeFromUath = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
+      console.log(user);
+    });
+  }
+  componentWillUnmount() {
+    this.unsubscribeFromUath();
   }
   render() {
     return (
@@ -46,7 +55,7 @@ class App extends React.Component {
           </div>
         </nav>
 
-        <Header />
+        <Header currentUser={this.state.currentUser} />
 
         <Switch>
           <Route exact path="/crwn-clothing/" component={HomePage} />
