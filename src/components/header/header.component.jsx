@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
 import { auth } from '../../firebase/firebase.utils.js';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
@@ -35,4 +37,12 @@ const Header = props => {
     </div>
   );
 };
-export default Header;
+
+// Passing props to <Header /> directly from REDUX
+// instead of <Header currentUser={this.state.currentUser} />
+// {state.user} === user.reducer.js (I GUESS)
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
