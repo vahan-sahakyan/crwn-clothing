@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { auth } from '../../firebase/firebase.utils.js';
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
 const Header = props => {
-  const { currentUser } = props;
+  const { currentUser, hidden } = props;
   return (
     <div className="header">
       <Link className="logo-container" to="/crwn-clothing/">
@@ -33,7 +35,9 @@ const Header = props => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <CartDropdown />}
     </div>
   );
 };
@@ -41,8 +45,15 @@ const Header = props => {
 // Passing props to <Header /> directly from REDUX
 // instead of <Header currentUser={this.state.currentUser} />
 // {state.user} === user.reducer.js (I GUESS)
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
-});
+const mapStateToProps = state => {
+  const {
+    user: { currentUser },
+    cart: { hidden },
+  } = state;
+  return {
+    currentUser,
+    hidden,
+  };
+};
 
 export default connect(mapStateToProps)(Header);

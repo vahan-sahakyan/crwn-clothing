@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   // margin-bottom: 25px;
-  padding: 6vw;
+  padding: 3.5em;
 
   .logo-container {
     height: 100%;
@@ -21,6 +21,8 @@
 }
 
 .options {
+  // position: relative;
+
   width: 80vw;
   height: 100%;
   display: flex;
