@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CustomButton from './components/custom-button/custom-button.component.jsx';
@@ -66,7 +66,13 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/crwn-clothing/" component={HomePage} />
           <Route path="/crwn-clothing/shop/" component={ShopPage} />
-          <Route path="/crwn-clothing/signin" component={SignInAndSignUpPage} />
+          <Route
+            exact
+            path="/crwn-clothing/signin"
+            render={() => 
+              this.props.currentUser ? <Redirect to="/crwn-clothing/" /> : <SignInAndSignUpPage/>
+            }
+          />
 
           <Route path="/crwn-clothing/hats/" component={ItemPage} />
         </Switch>
@@ -75,8 +81,13 @@ class App extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
 });
 
-export default connect(undefined, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
