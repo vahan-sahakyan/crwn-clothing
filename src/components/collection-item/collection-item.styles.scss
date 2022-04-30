@@ -5,6 +5,7 @@
   height: 100%;
   align-items: center;
   flex: 1;
+  position: relative;
 
   .image {
     width: 100%;
@@ -13,6 +14,24 @@
     background-position: center;
     margin-bottom: 5px;
     // border: 1px solid black;
+  }
+
+  .custom-button {
+    width: 80%;
+    opacity: 0.8;
+    position: absolute;
+    top: 22vw;
+    display: none;
+  }
+
+  &:hover {
+    .image {
+      opacity: 0.8;
+    }
+    .custom-button {
+      opacity: 0.85;
+      display: block;
+    }
   }
 
   .collection-footer {

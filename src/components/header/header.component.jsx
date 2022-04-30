@@ -20,12 +20,15 @@ const Header = props => {
       </Link>
 
       <div className="options">
+        <Link className="option" to="/crwn-clothing/">
+          HOME
+        </Link>
         <Link className="option" to="/crwn-clothing/shop">
           SHOP
         </Link>
-        <Link className="option" to="/crwn-clothing/shop">
+        {/* <Link className="option" to="/crwn-clothing/shop">
           CONTACT
-        </Link>
+        </Link> */}
         {currentUser ? (
           <div className="option" onClick={() => auth.signOut()}>
             SIGN OUT

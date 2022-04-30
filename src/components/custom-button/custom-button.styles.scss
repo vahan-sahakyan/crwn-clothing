@@ -1,10 +1,10 @@
 .custom-button {
-  min-width: 165px;
-  width: auto;
+  // min-width: 165px;
+  width: 16vw;
   height: 50px;
   letter-spacing: 0.5px;
   line-height: inherit;
-  padding: 0 35px 0 35px;
+  // padding: 0 2vw;
   font-size: 15px;
   background-color: black;
   color: white;
@@ -27,6 +27,17 @@
     &:hover {
       background-color: #357ae8;
       border: 1px solid #0000;
+    }
+  }
+
+  &.inverted {
+    background-color: #fff;
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-color: black;
+      color: white;
     }
   }
 }
