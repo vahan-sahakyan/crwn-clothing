@@ -30,6 +30,7 @@ class App extends React.Component {
   unsubscribeFromUath = null;
   componentDidMount() {
     const { setCurrentUser } = this.props;
+
     this.unsubscribeFromUath = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -44,9 +45,11 @@ class App extends React.Component {
       setCurrentUser(userAuth);
     });
   }
+
   componentWillUnmount() {
     this.unsubscribeFromUath();
   }
+
   render() {
     return (
       <div>
@@ -69,8 +72,12 @@ class App extends React.Component {
           <Route
             exact
             path="/crwn-clothing/signin"
-            render={() => 
-              this.props.currentUser ? <Redirect to="/crwn-clothing/" /> : <SignInAndSignUpPage/>
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to="/crwn-clothing/" />
+              ) : (
+                <SignInAndSignUpPage />
+              )
             }
           />
 
