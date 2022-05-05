@@ -1,16 +1,20 @@
-import './App.css';
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import CustomButton from './components/custom-button/custom-button.component.jsx';
+import './App.css';
 
+// import CustomButton from './components/custom-button/custom-button.component.jsx';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
+import CheckoutPage from './pages/checkout/checkout.component';
+
 import Header from '../src/components/header/header.component.jsx';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
+import { selectCurrentUser } from './redux/user/user.selectors';
 
 function ItemPage(props) {
   const { match } = props;
@@ -55,10 +59,10 @@ class App extends React.Component {
       <div>
         {/* <nav className="nav">
           <div className="nav-container">
-            <Link to="/crwn-clothing/">
+            <Link to="/">
               <CustomButton> HOME</CustomButton>
             </Link>
-            <Link to="/crwn-clothing/shop">
+            <Link to="/shop">
               <CustomButton>SHOP</CustomButton>
             </Link>
           </div>
@@ -67,21 +71,22 @@ class App extends React.Component {
         <Header />
 
         <Switch>
-          <Route exact path="/crwn-clothing/" component={HomePage} />
-          <Route path="/crwn-clothing/shop/" component={ShopPage} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
-            path="/crwn-clothing/signin"
+            path="/signin"
             render={() =>
               this.props.currentUser ? (
-                <Redirect to="/crwn-clothing/" />
+                <Redirect to="/" />
               ) : (
                 <SignInAndSignUpPage />
               )
             }
           />
 
-          <Route path="/crwn-clothing/hats/" component={ItemPage} />
+          <Route path="/hats" component={ItemPage} />
         </Switch>
         <div style={{ height: '70px' }} />
       </div>
@@ -89,8 +94,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = dispatch => ({

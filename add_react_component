@@ -1,0 +1,38 @@
+#!/bin/bash
+# by Vahan Sahakyan (for CRWN-CLOTHING project)
+# This script creates a React Component folder
+# in which .jsx and .scss files are included
+
+
+TYPE=$1
+NAME=$2
+
+if [[ -z "${NAME}"  ||  -z "${TYPE}" ]]; then
+  echo 
+  echo "USAGE:"
+  echo 
+  echo "$0 <TYPE[page/component]> <NAME>"
+  echo 
+
+  exit 1
+fi
+
+cd ~/Desktop/development/react-js/crwn-clothing/src/${TYPE}s/
+
+if [[ $? -eq 1 ]]; then
+  echo
+  echo 'Wrong type name!'
+  echo 'Please choose between "page" or "component"'
+  echo
+  
+  exit 1
+fi
+
+mkdir ${NAME} && cd ${NAME}
+
+touch ${NAME}.component.jsx
+touch ${NAME}.styles.scss
+
+echo "import React from 'react'" >> ${NAME}.component.jsx
+echo "" >> ${NAME}.component.jsx
+echo "import './${NAME}.styles.scss'" >> ${NAME}.component.jsx
