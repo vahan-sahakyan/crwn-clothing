@@ -9,36 +9,41 @@ class Directory extends React.Component {
     this.state = {
       sections: [
         {
-          title: 'hats',
-          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-          id: 1,
-          linkUrl: 'hats',
-        },
-        {
-          title: 'jackets',
-          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-          id: 2,
-          linkUrl: 'jackets',
-        },
-        {
-          title: 'sneakers',
-          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-          id: 3,
-          linkUrl: 'sneakers',
-        },
-        {
           title: 'womens',
-          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+          imageUrl:
+            'https://images.pexels.com/photos/4862517/pexels-photo-4862517.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-4862517.jpg&fm=jpg',
           size: 'large',
-          id: 4,
+          id: 2,
           linkUrl: 'womens',
         },
         {
           title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          imageUrl:
+            'https://images.pexels.com/photos/842811/pexels-photo-842811.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-842811.jpg&fm=jpg',
           size: 'large',
-          id: 5,
+          id: 1,
           linkUrl: 'mens',
+        },
+        {
+          title: 'hats',
+          imageUrl:
+            'https://images.pexels.com/photos/1751150/pexels-photo-1751150.jpeg?cs=srgb&dl=pexels-rodolfo-quirós-1751150.jpg&fm=jpg',
+          id: 3,
+          linkUrl: 'hats',
+        },
+        {
+          title: 'jackets',
+          imageUrl:
+            'https://images.pexels.com/photos/7679798/pexels-photo-7679798.jpeg?cs=srgb&dl=pexels-mart-production-7679798.jpg&fm=jpg',
+          id: 4,
+          linkUrl: 'jackets',
+        },
+        {
+          title: 'sneakers',
+          imageUrl:
+            'https://images.pexels.com/photos/6777991/pexels-photo-6777991.jpeg?cs=srgb&dl=pexels-hipkicks-6777991.jpg&fm=jpg',
+          id: 5,
+          linkUrl: 'sneakers',
         },
       ],
     };

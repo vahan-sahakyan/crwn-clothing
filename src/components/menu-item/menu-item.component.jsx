@@ -10,7 +10,7 @@ const MenuItem = props => {
 
   return (
     <div
-      className={`${size ? size : ''} menu-item`}
+      className={`${size ? size : ''} ${title.toLowerCase()} menu-item`}
       onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
       <div
@@ -20,7 +20,7 @@ const MenuItem = props => {
         }}
       />
       <div className="content">
-        <h1 className="title">{title}</h1>
+        <h2 className="title">{title}</h2>
         <span className="subtitle">SHOP NOW</span>
       </div>
     </div>

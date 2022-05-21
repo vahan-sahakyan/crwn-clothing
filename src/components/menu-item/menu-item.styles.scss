@@ -1,11 +1,10 @@
 .menu-item {
   min-width: 30%;
-  height: 240px;
-  flex: 1 1 auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  // border: 1px solid black;
+  border: 1px solid #6b6010;
   margin: 0 7.5px 15px;
   position: relative;
   overflow: hidden;
@@ -24,8 +23,19 @@
   }
 
   &.large {
-    height: 340px;
-    flex: 1 1 100%;
+  }
+  &.womens {
+    grid-column: span 3;
+    // grid-row: 1 / 3;
+  }
+  &.mens {
+    grid-column: span 3;
+    // grid-row: 1 / 3;
+  }
+  &.sneakers,
+  &.jackets,
+  &.hats {
+    grid-column: span 2;
   }
 
   &:first-child {
@@ -50,7 +60,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 1px solid #3e3705;
     background-color: #fff8;
     backdrop-filter: blur(5px);
 
@@ -58,16 +68,16 @@
     position: absolute;
 
     .title {
-      font-weight: bold;
+      font-weight: 500;
       margin-bottom: 6px;
       font-size: 22px;
-      color: black;
+      color: #333;
       margin: 0;
     }
 
     .subtitle {
-      font-weight: lighter;
-      font-size: 16px;
+      font-weight: 400;
+      font-size: 14px;
     }
   }
 }

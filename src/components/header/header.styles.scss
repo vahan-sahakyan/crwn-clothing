@@ -4,6 +4,7 @@
   justify-content: space-between;
   // margin-bottom: 25px;
   padding: 4em 6vw;
+  letter-spacing: -1.2px;
 
   .logo-container {
     height: 100%;
@@ -43,6 +44,6 @@
 @media (max-width: 580px) {
   .header .option {
     font-size: 1.5em;
-    font-weight: 600;
+    font-weight: 300;
   }
 }
