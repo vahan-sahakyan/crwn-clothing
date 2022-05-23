@@ -1,5 +1,5 @@
 .menu-item {
-  min-width: 30%;
+  // min-width: 30%;
 
   display: flex;
   align-items: center;
@@ -55,6 +55,7 @@
 
   .content {
     height: 90px;
+    width: 125px;
     padding: 0 3vw;
     display: flex;
     flex-direction: column;
@@ -67,6 +68,7 @@
     // opacity: 0.7;
     position: absolute;
 
+    white-space: nowrap;
     .title {
       font-weight: 500;
       margin-bottom: 6px;
