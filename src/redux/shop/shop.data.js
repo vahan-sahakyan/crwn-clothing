@@ -91,7 +91,7 @@ const SHOP_DATA = {
       },
     ],
   },
-  mens: {
+  hats: {
     id: 3,
     title: 'Hats',
     routeName: 'hats',

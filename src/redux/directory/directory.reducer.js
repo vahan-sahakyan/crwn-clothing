@@ -4,14 +4,14 @@ const INITIAL_STATE = {
       title: 'womens',
       imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/HpSfMd9Usf.jpg',
       size: 'large',
-      id: 2,
+      id: 1,
       linkUrl: 'shop/womens',
     },
     {
       title: 'mens',
       imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/zKuH7w8WZp.jpg',
       size: 'large',
-      id: 1,
+      id: 2,
       linkUrl: 'shop/mens',
     },
     {
