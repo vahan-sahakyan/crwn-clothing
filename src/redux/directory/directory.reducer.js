@@ -16,19 +16,19 @@ const INITIAL_STATE = {
     },
     {
       title: 'hats',
-      imageUrl: '/src/assets/img/directory/hats.jpg',
+      imageUrl: '../../assets/img/directory/hats.jpg',
       id: 3,
       linkUrl: 'shop/hats',
     },
     {
       title: 'jackets',
-      imageUrl: '/src/assets/img/directory/jackets.jpg',
+      imageUrl: '../../assets/img/directory/jackets.jpg',
       id: 4,
       linkUrl: 'shop/jackets',
     },
     {
       title: 'sneakers',
-      imageUrl: '/src/assets/img/directory/sneakers.jpg',
+      imageUrl: '../../assets/img/directory/sneakers.jpg',
       id: 5,
       linkUrl: 'shop/sneakers',
     },
