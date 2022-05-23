@@ -2,33 +2,33 @@ const INITIAL_STATE = {
   sections: [
     {
       title: 'womens',
-      imageUrl: '/src/assets/img/directory/womens.jpg',
+      imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/HpSfMd9Usf.jpg',
       size: 'large',
       id: 2,
       linkUrl: 'shop/womens',
     },
     {
       title: 'mens',
-      imageUrl: '../../assets/img/directory/mens.jpg',
+      imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/zKuH7w8WZp.jpg',
       size: 'large',
       id: 1,
       linkUrl: 'shop/mens',
     },
     {
       title: 'hats',
-      imageUrl: '../../assets/img/directory/hats.jpg',
+      imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/VJuqu93rTW.jpg',
       id: 3,
       linkUrl: 'shop/hats',
     },
     {
       title: 'jackets',
-      imageUrl: '../../assets/img/directory/jackets.jpg',
+      imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/6UXw9ZXajM.jpg',
       id: 4,
       linkUrl: 'shop/jackets',
     },
     {
       title: 'sneakers',
-      imageUrl: '../../assets/img/directory/sneakers.jpg',
+      imageUrl: 'https://imgcloud.s3.us-east-1.wasabisys.com/wYJZfqzf7q.jpg',
       id: 5,
       linkUrl: 'shop/sneakers',
     },
