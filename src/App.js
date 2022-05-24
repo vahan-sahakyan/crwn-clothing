@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
 
 import './App.css';
 
@@ -15,6 +16,16 @@ import Header from '../src/components/header/header.component.jsx';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
+
+const Text = styled.div`
+  color: #088a;
+  font-size: 18px;
+  text-align: center;
+  text-transform: lowercase;
+  letter-spacing: -1px;
+  box-shadow: 0 0 2em #0002;
+  padding: 0.5em 0;
+`;
 
 function ItemPage(props) {
   const { match } = props;
@@ -67,8 +78,8 @@ class App extends React.Component {
             </Link>
           </div>
         </nav> */}
-
         <Header />
+        {/* <Text>E-Commerce Web Application</Text> */}
 
         <Switch>
           <Redirect from="/crwn-clothing" to="/" />
@@ -78,13 +89,7 @@ class App extends React.Component {
           <Route
             exact
             path="/signin"
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to="/" />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
+            render={() => (this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />)}
           />
 
           <Route path="/hats" component={ItemPage} />
