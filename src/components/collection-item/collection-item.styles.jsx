@@ -33,18 +33,20 @@ export const BackgroundImage = styled.div`
 
 export const CollectionFooterContainer = styled.div`
   width: 100%;
-  height: 5%;
+  /* height: 5%; */
   display: flex;
   justify-content: space-between;
   font-size: 18px;
 `;
 
 export const NameContainer = styled.span`
-  flex: 1;
+  // flex: 1;
   margin-bottom: 15px;
+  max-width: fit-content;
 `;
 export const PriceContainer = styled.span`
-  flex: 1;
+  // flex: 1;
+  max-width: fit-content;
 `;
 
 export const AddToCartButton = styled(CustomButton)`
