@@ -17,29 +17,19 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
-const Text = styled.div`
-  color: #088a;
-  font-size: 18px;
-  text-align: center;
-  text-transform: lowercase;
-  letter-spacing: -1px;
-  box-shadow: 0 0 2em #0002;
-  padding: 0.5em 0;
-`;
+// function ItemPage(props) {
+//   const { match } = props;
+//   const menuItem = match.path.split('/')[2].toUpperCase();
+//   console.log(`[ ${menuItem} PAGE ]`);
 
-function ItemPage(props) {
-  const { match } = props;
-  const menuItem = match.path.split('/')[2].toUpperCase();
-  console.log(`[ ${menuItem} PAGE ]`);
-
-  console.log(match.url);
-  console.log(match.path);
-  return (
-    <div className="homepage">
-      <h1>{menuItem} PAGE</h1>
-    </div>
-  );
-}
+//   console.log(match.url);
+//   console.log(match.path);
+//   return (
+//     <div className='homepage'>
+//       <h1>{menuItem} PAGE</h1>
+//     </div>
+//   );
+// }
 
 class App extends React.Component {
   unsubscribeFromUath = null;
@@ -79,20 +69,17 @@ class App extends React.Component {
           </div>
         </nav> */}
         <Header />
-        {/* <Text>E-Commerce Web Application</Text> */}
 
         <Switch>
-          <Redirect from="/crwn-clothing" to="/" />
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={CheckoutPage} />
+          <Redirect from='/crwn-clothing' to='/' />
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
           <Route
             exact
-            path="/signin"
-            render={() => (this.props.currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />)}
+            path='/signin'
+            render={() => (this.props.currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />)}
           />
-
-          <Route path="/hats" component={ItemPage} />
         </Switch>
         <div style={{ height: '70px' }} />
       </div>
