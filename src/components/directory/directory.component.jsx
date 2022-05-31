@@ -3,22 +3,18 @@ import { connect } from 'react-redux';
 
 import { selectDirectorySections } from '../../redux/directory/directory.selectors';
 
-import './directory.styles.scss';
+import { DirectoryMenuContainer } from './directory.styles';
 import '../menu-item/menu-item.component';
 import MenuItem from '../menu-item/menu-item.component';
 import { createStructuredSelector } from 'reselect';
 
 const Directory = ({ sections }) => {
   return (
-    <div className="directory-menu">
+    <DirectoryMenuContainer>
       {sections.map(({ id, title, ...otherSectionProps }) => (
-        <MenuItem
-          key={id}
-          title={title.toUpperCase()}
-          {...otherSectionProps}
-        ></MenuItem>
+        <MenuItem key={id} title={title.toUpperCase()} {...otherSectionProps}></MenuItem>
       ))}
-    </div>
+    </DirectoryMenuContainer>
   );
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import './shop.styles.scss';
+import { ShopPageContainer } from './shop.styles';
 
 import { convertCollectionsSnapshotToMap, firestore } from '../../firebase/firebase.utils';
 import { updateCollections } from '../../redux/shop/shop.actions';
@@ -11,6 +11,7 @@ import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
+import { SpinnerContainer } from '../../components/with-spinner/with-spinner.styles';
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
@@ -38,7 +39,7 @@ class ShopPage extends React.Component {
     const { loading } = this.state;
     console.log(match);
     return (
-      <div className='shop-page'>
+      <ShopPageContainer>
         <Route
           exact
           path={`${match.path}`}
@@ -48,7 +49,7 @@ class ShopPage extends React.Component {
           path={`${match.path}/:collectionId`}
           render={props => <CollectionPageWithSpinner isLoading={loading} {...props} />}
         />
-      </div>
+      </ShopPageContainer>
     );
   }
 }

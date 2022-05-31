@@ -1,7 +1,6 @@
 import React from 'react';
 
-import './sign-in.styles.scss';
-
+import { FormContainer, SubmitContainer, SignInContainer } from './sign-in.styles';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -15,6 +14,7 @@ class SignIn extends React.Component {
       password: '',
     };
   }
+
   handleSubmit = async event => {
     event.preventDefault();
     const { email, password } = this.state;
@@ -34,35 +34,35 @@ class SignIn extends React.Component {
   };
   render() {
     return (
-      <div className="sign-in">
+      <SignInContainer>
         <h2>I already have an account</h2>
         <span>Sign in with your email</span>
 
-        <form onSubmit={this.handleSubmit}>
+        <FormContainer onSubmit={this.handleSubmit}>
           <FormInput
-            name="email"
-            type="email"
+            name='email'
+            type='email'
             handleChange={this.handleChange}
             value={this.state.email}
-            label="Email"
+            label='Email'
             required
           />
           <FormInput
-            name="password"
-            type="password"
+            name='password'
+            type='password'
             handleChange={this.handleChange}
             value={this.state.password}
-            label="Password"
+            label='Password'
             required
           />
-          <div className="submit-container">
-            <CustomButton type="submit">Sign In</CustomButton>
+          <SubmitContainer>
+            <CustomButton type='submit'>Sign In</CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
               Sign In With Google
             </CustomButton>
-          </div>
-        </form>
-      </div>
+          </SubmitContainer>
+        </FormContainer>
+      </SignInContainer>
     );
   }
 }

@@ -5,7 +5,7 @@ export const CollectionPreviewContainer = styled.div`
   flex-direction: column;
   margin-bottom: 30px;
 
-  min-width: 100%;
+  width: 100%;
   flex: 1 1 auto;
 `;
 
