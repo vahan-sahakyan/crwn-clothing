@@ -23,7 +23,6 @@ const CollectionPage = ({ collection }) => {
   );
 };
 
-// TODO 150 Collection Routing and Selector
 const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state),
 });
