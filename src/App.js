@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import styled from 'styled-components';
 
 import './App.css';
 
@@ -13,9 +12,8 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import CheckoutPage from './pages/checkout/checkout.component';
 
 import Header from '../src/components/header/header.component.jsx';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
+import { checkUserSession } from './redux/user/user.actions';
 
 // function ItemPage(props) {
 //   const { match } = props;
@@ -33,22 +31,9 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 class App extends React.Component {
   unsubscribeFromUath = null;
-  componentDidMount() {
-    const { setCurrentUser } = this.props;
-
-    this.unsubscribeFromUath = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-      setCurrentUser(userAuth);
-    });
+  componentDidMount(props) {
+    const { checkUserSession } = this.props;
+    checkUserSession();
   }
 
   componentWillUnmount() {
@@ -78,7 +63,13 @@ class App extends React.Component {
           <Route
             exact
             path='/signin'
-            render={() => (this.props.currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />)}
+            render={() =>
+              this.props.currentUser ? (
+                <Redirect to='/' />
+              ) : (
+                <SignInAndSignUpPage />
+              )
+            }
           />
         </Switch>
         <div style={{ height: '70px' }} />
@@ -92,13 +83,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-
-
-
-
-

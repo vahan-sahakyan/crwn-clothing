@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
 import {
   firestore,
@@ -30,10 +30,8 @@ export function* fetchCollectionsAsync() {
 
 export function* fetchCollectionsStart() {
   // add Action Listener
-  yield takeEvery(
+  yield takeLatest(
     ShopActionTypes.FETCH_COLLECTIONS_START, // event (Action)
     fetchCollectionsAsync // callback
   );
 }
-
-// TODO 202 Root Saga

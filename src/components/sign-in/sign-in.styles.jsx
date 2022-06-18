@@ -9,7 +9,7 @@ export const SignInContainer = styled.div`
   flex: 1;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   width: auto;
 `;
 
