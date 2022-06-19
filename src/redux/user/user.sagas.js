@@ -17,7 +17,6 @@ import {
   createUserProfileDocument,
   getCurrentUser,
 } from '../../firebase/firebase.utils';
-import SignUp from '../../components/sign-up/sign-up.component';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
@@ -125,5 +124,3 @@ export function* userSagas() {
     call(onSignUpSuccess),
   ]);
 }
-
-// TODO 211 Sign Up Sagas

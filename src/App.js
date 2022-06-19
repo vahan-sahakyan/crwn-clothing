@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -29,21 +29,14 @@ import { checkUserSession } from './redux/user/user.actions';
 //   );
 // }
 
-class App extends React.Component {
-  unsubscribeFromUath = null;
-  componentDidMount(props) {
-    const { checkUserSession } = this.props;
+const App = ({ checkUserSession, currentUser }) => {
+  useEffect(() => {
     checkUserSession();
-  }
+  }, [checkUserSession]);
 
-  componentWillUnmount() {
-    this.unsubscribeFromUath();
-  }
-
-  render() {
-    return (
-      <div>
-        {/* <nav className="nav">
+  return (
+    <div>
+      {/* <nav className="nav">
           <div className="nav-container">
             <Link to="/">
               <CustomButton> HOME</CustomButton>
@@ -53,30 +46,25 @@ class App extends React.Component {
             </Link>
           </div>
         </nav> */}
-        <Header />
+      <Header />
 
-        <Switch>
-          <Redirect from='/crwn-clothing' to='/' />
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route
-            exact
-            path='/signin'
-            render={() =>
-              this.props.currentUser ? (
-                <Redirect to='/' />
-              ) : (
-                <SignInAndSignUpPage />
-              )
-            }
-          />
-        </Switch>
-        <div style={{ height: '70px' }} />
-      </div>
-    );
-  }
-}
+      <Switch>
+        <Redirect from='/crwn-clothing' to='/' />
+        <Route exact path='/' component={HomePage} />
+        <Route path='/shop' component={ShopPage} />
+        <Route exact path='/checkout' component={CheckoutPage} />
+        <Route
+          exact
+          path='/signin'
+          render={() =>
+            currentUser ? <Redirect to='/' /> : <SignInAndSignUpPage />
+          }
+        />
+      </Switch>
+      <div style={{ height: '70px' }} />
+    </div>
+  );
+};
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
