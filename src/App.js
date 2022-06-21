@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './App.css';
@@ -25,8 +25,7 @@ const App = () => {
     <div>
       <Header />
 
-      {/* <Switch> */}
-      <Switch basename='/crwn-clothing'>
+      <Switch>
         <Redirect from='/crwn-clothing' to='/' />
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
