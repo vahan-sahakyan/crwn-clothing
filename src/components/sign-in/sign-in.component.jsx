@@ -75,8 +75,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
-
-// TODO 212 - 11:38
-// TODO 214 - 14:51
-// TODO 215 - 02:55
-// TODO 216 Converting Class Components With useState 08:12

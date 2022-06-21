@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React, { useEffect } from 'react';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 import './App.css';
 
-// import CustomButton from './components/custom-button/custom-button.component.jsx';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
@@ -15,40 +13,20 @@ import Header from '../src/components/header/header.component.jsx';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
 
-// function ItemPage(props) {
-//   const { match } = props;
-//   const menuItem = match.path.split('/')[2].toUpperCase();
-//   console.log(`[ ${menuItem} PAGE ]`);
+const App = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
 
-//   console.log(match.url);
-//   console.log(match.path);
-//   return (
-//     <div className='homepage'>
-//       <h1>{menuItem} PAGE</h1>
-//     </div>
-//   );
-// }
-
-const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
-    checkUserSession();
-  }, [checkUserSession]);
+    dispatch(checkUserSession());
+  }, [dispatch]);
 
   return (
     <div>
-      {/* <nav className="nav">
-          <div className="nav-container">
-            <Link to="/">
-              <CustomButton> HOME</CustomButton>
-            </Link>
-            <Link to="/shop">
-              <CustomButton>SHOP</CustomButton>
-            </Link>
-          </div>
-        </nav> */}
       <Header />
 
       <Switch>
+        {/* <Switch basename='/crwn-clothing'> */}
         <Redirect from='/crwn-clothing' to='/' />
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
@@ -66,12 +44,4 @@ const App = ({ checkUserSession, currentUser }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
-
-const mapDispatchToProps = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
