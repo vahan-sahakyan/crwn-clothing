@@ -26,7 +26,6 @@ const App = () => {
       <Header />
 
       <Switch>
-        {/* <Redirect from='/crwn-clothing' to='/' /> */}
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
         <Route exact path='/checkout' component={CheckoutPage} />

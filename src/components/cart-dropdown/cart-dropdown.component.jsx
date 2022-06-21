@@ -47,10 +47,6 @@ const CartDropdown = () => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
-});
-
 export default CartDropdown;
 
 // TODO 226 useParams Part 1

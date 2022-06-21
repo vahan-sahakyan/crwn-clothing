@@ -20,6 +20,10 @@ export const CartItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 `;
 
 export const EmptyMessage = styled.span`
