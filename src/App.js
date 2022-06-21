@@ -25,8 +25,8 @@ const App = () => {
     <div>
       <Header />
 
-      <Switch>
-        {/* <Switch basename='/crwn-clothing'> */}
+      {/* <Switch> */}
+      <Switch basename='/crwn-clothing'>
         <Redirect from='/crwn-clothing' to='/' />
         <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
