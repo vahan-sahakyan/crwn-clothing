@@ -36,3 +36,5 @@ touch ${NAME}.styles.scss
 echo "import React from 'react'" >> ${NAME}.component.jsx
 echo "" >> ${NAME}.component.jsx
 echo "import './${NAME}.styles.scss'" >> ${NAME}.component.jsx
+
+# working copy test
