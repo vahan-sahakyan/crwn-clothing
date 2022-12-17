@@ -14,12 +14,9 @@ import {
 
 const CollectionPage = () => {
   const { collectionId } = useParams();
-  console.log('HELLO', collectionId);
   const collection = useSelector(selectCollection(collectionId));
 
   const { title, items } = collection;
-  // console.log('COLLECTION:', collection);
-  // const item = collection.match.params.collectionId;
   return (
     <CollectionPageContainer>
       <CollectionTitle>{title.toUpperCase()}</CollectionTitle>
