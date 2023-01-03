@@ -16,12 +16,12 @@ const CollectionPage = () => {
   const { collectionId } = useParams();
   const collection = useSelector(selectCollection(collectionId));
 
-  const { title, items } = collection;
+  // const { title, items } = collection;
   return (
     <CollectionPageContainer>
-      <CollectionTitle>{title.toUpperCase()}</CollectionTitle>
+      <CollectionTitle>{collection.title.toUpperCase()}</CollectionTitle>
       <CollectionItemsContainer>
-        {items.map(item => (
+        {collection.items.map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </CollectionItemsContainer>

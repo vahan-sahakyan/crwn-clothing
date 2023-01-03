@@ -1,12 +1,22 @@
-import ShopActionTypes from './shop.types';
+import { CollectionAction } from './shop.actions';
+import { ShopActionTypes, Collection } from './shop.types';
 
-const INITIAL_STATE = {
-  collections: null,
-  isFetching: false,
-  errorMessage: undefined,
+export type CollectionsState = {
+  readonly collections: Collection[];
+  readonly isFetching: boolean;
+  readonly errorMessage: Error | null;
 };
 
-const shopReducer = (state = INITIAL_STATE, action) => {
+const COLLECTIONS_INITIAL_STATE: CollectionsState = {
+  collections: [],
+  isFetching: false,
+  errorMessage: null,
+};
+
+const shopReducer = (
+  state = COLLECTIONS_INITIAL_STATE,
+  action = {} as CollectionAction
+) => {
   switch (action.type) {
     case ShopActionTypes.FETCH_COLLECTIONS_START:
       return {
