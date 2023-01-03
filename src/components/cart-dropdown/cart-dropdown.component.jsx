@@ -15,7 +15,6 @@ import {
 } from './cart-dropdown.styles';
 
 const goToCheckout = history => {
-  console.log(history);
   history.push('/checkout');
 };
 

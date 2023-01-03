@@ -10,10 +10,7 @@ import {
 } from './menu-item.styles';
 
 const MenuItem = props => {
-  console.log('[ MENU-ITEM ]');
   const { title, imageUrl, size, linkUrl, history, match } = props;
-  console.log(match.url);
-  console.log(match.path);
 
   return (
     <MenuItemContainer
