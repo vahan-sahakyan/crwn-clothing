@@ -6,11 +6,7 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
-import {
-  CollectionPageContainer,
-  CollectionTitle,
-  CollectionItemsContainer,
-} from './collection.styles.jsx';
+import { CollectionPageContainer, CollectionTitle, CollectionItemsContainer } from './collection.styles.jsx';
 
 const CollectionPage = () => {
   const { collectionId } = useParams();

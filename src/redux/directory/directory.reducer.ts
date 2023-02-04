@@ -1,4 +1,16 @@
-const INITIAL_STATE = {
+import { AnyAction } from 'redux';
+
+export type DirectoryState = {
+  sections: Array<{
+    title: string;
+    imageUrl: string;
+    size?: string;
+    id: number;
+    linkUrl: string;
+  }>;
+};
+
+export const DIRECTORY_INITIAL_STATE: DirectoryState = {
   sections: [
     {
       title: 'womens',
@@ -34,11 +46,9 @@ const INITIAL_STATE = {
     },
   ],
 };
-const directoryReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
+
+const directoryReducer = (state = DIRECTORY_INITIAL_STATE, action: AnyAction): DirectoryState => {
+  return state;
 };
 
 export default directoryReducer;

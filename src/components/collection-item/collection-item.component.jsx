@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../redux/cart/cart.actions.js';
+import { addItem } from '../../redux/cart/cart.actions';
 
 import {
   CollectionItemContainer,

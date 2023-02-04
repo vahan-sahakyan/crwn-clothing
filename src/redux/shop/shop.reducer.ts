@@ -1,43 +1,30 @@
-import { CollectionAction } from './shop.actions';
-import { ShopActionTypes, Collection } from './shop.types';
+import { AnyAction } from 'redux';
+import { fetchCollectionsFailure, fetchCollectionsStart, fetchCollectionsSuccess } from './shop.actions';
+import { Collection } from './shop.types';
 
 export type CollectionsState = {
   readonly collections: Collection[];
-  readonly isFetching: boolean;
-  readonly errorMessage: Error | null;
+  readonly isLoading: boolean;
+  readonly error: Error | null;
 };
 
-const COLLECTIONS_INITIAL_STATE: CollectionsState = {
+export const COLLECTIONS_INITIAL_STATE: CollectionsState = {
   collections: [],
-  isFetching: false,
-  errorMessage: null,
+  isLoading: false,
+  error: null,
 };
 
-const shopReducer = (
-  state = COLLECTIONS_INITIAL_STATE,
-  action = {} as CollectionAction
-) => {
-  switch (action.type) {
-    case ShopActionTypes.FETCH_COLLECTIONS_START:
-      return {
-        ...state,
-        isFetching: true,
-      };
-    case ShopActionTypes.FETCH_COLLECTIONS_SUCCESS:
-      return {
-        ...state,
-        isFetching: false,
-        collections: action.payload,
-      };
-    case ShopActionTypes.FETCH_COLLECTIONS_FAILURE:
-      return {
-        ...state,
-        isFetching: false,
-        errorMessage: action.payload,
-      };
-    default:
-      return state;
+const shopReducer = (state = COLLECTIONS_INITIAL_STATE, action = {} as AnyAction): CollectionsState => {
+  if (fetchCollectionsStart.match(action)) {
+    return { ...state, isLoading: true };
   }
+  if (fetchCollectionsSuccess.match(action)) {
+    return { ...state, collections: action.payload, isLoading: false };
+  }
+  if (fetchCollectionsFailure.match(action)) {
+    return { ...state, error: action.payload, isLoading: false };
+  }
+  return state;
 };
 
 export default shopReducer;
